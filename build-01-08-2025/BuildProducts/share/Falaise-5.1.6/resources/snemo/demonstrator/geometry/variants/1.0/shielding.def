@@ -1,0 +1,18 @@
+[name="shielding.on_off.PM" type="parameter"]
+  #@config A parameter model describing the activation of the shielding
+  display_name        : string = "Shielding activation"
+  terse_description   : string = "The activation of the shielding "
+  mutability : string = "variable"
+  type : string = "boolean"
+    boolean.default     : boolean = true
+
+
+[name="shielding.VM" type="variant"]
+  #@config A variant model describing the parameters for the shielding
+  display_name       : string = "Shielding"
+  terse_description  : string = "The configuration parameters for the shielding"
+  parameters : string[1] = "active"
+    parameters.active.model       : string = "shielding.on_off.PM"
+    parameters.active.description : string = "The activation flag of the shielding"
+
+# end

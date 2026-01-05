@@ -77,7 +77,10 @@ namespace snemo {
       enum tracker_height_calibration_method {
 	TRACKER_HEIGHT_NONE        = 0,
 	TRACKER_HEIGHT_LINEAR_R5R6 = 1,
-	TRACKER_HEIGHT_NON_LINEAR_R5R6 = 2
+  TRACKER_HEIGHT_LINEAR_R5R6_ERROR = 2,
+  TRACKER_HEIGHT_LINEAR_SINGLE_TS_R5R6_ERROR = 3,
+	TRACKER_HEIGHT_NON_LINEAR_R5R6 = 4
+  
       };
 
     public:
@@ -167,6 +170,11 @@ namespace snemo {
       double _pcd2cd_tracker_height_offset_;
       double _pcd2cd_tracker_height_deceleration_;
       double _pcd2cd_tracker_height_error_;
+      double _pcd2cd_tracker_height_error_single_ts_top_a_;
+      double _pcd2cd_tracker_height_error_single_ts_top_b_;
+      double _pcd2cd_tracker_height_error_single_ts_bot_a_;
+      double _pcd2cd_tracker_height_error_single_ts_bot_b_;
+      std::vector<double> _pcd2cd_tracker_ppt_constants_;
 
       // Macro to automate the registration of the module :
       DPP_MODULE_REGISTRATION_INTERFACE(pcd2cd_module)

@@ -1,0 +1,4 @@
+#!/bin/bash
+export FL_INSTALL_PATH=/sps/nemo/scratch/spratt/Falaise_testing/special_falaise/special-falaise/build-01-08-2025/BuildProducts/
+export PATH=$FL_INSTALL_PATH/bin:$PATH 
+export LD_LIBRARY_PATH=$FL_INSTALL_PATH/lib:$LD_LIBRARY_PATH

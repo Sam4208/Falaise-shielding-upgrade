@@ -1,0 +1,19 @@
+var searchData=
+[
+  ['vertex_5fcategory_5fin_5fgas_25142',['VERTEX_CATEGORY_IN_GAS',['../namespacesnemo_1_1datamodel.html#a3aa3b36aad6ac4e2333037bbb03a04c5a0f71e0f2c751b7c1f80140efb9eae86b',1,'snemo::datamodel']]],
+  ['vertex_5fcategory_5fon_5fcalibration_5fsource_25143',['VERTEX_CATEGORY_ON_CALIBRATION_SOURCE',['../namespacesnemo_1_1datamodel.html#a3aa3b36aad6ac4e2333037bbb03a04c5afbbc14a199fabe8a4721650eacb5e866',1,'snemo::datamodel']]],
+  ['vertex_5fcategory_5fon_5fgamma_5fveto_25144',['VERTEX_CATEGORY_ON_GAMMA_VETO',['../namespacesnemo_1_1datamodel.html#a3aa3b36aad6ac4e2333037bbb03a04c5a782564ea907f70920f528de500d4b574',1,'snemo::datamodel']]],
+  ['vertex_5fcategory_5fon_5fmain_5fcalorimeter_25145',['VERTEX_CATEGORY_ON_MAIN_CALORIMETER',['../namespacesnemo_1_1datamodel.html#a3aa3b36aad6ac4e2333037bbb03a04c5a8839920b85ca7e67c7e8826f6d77c9da',1,'snemo::datamodel']]],
+  ['vertex_5fcategory_5fon_5freference_5fsource_5fplane_25146',['VERTEX_CATEGORY_ON_REFERENCE_SOURCE_PLANE',['../namespacesnemo_1_1datamodel.html#a3aa3b36aad6ac4e2333037bbb03a04c5a542327a91925fe442d87446891ab2264',1,'snemo::datamodel']]],
+  ['vertex_5fcategory_5fon_5fsource_5ffoil_25147',['VERTEX_CATEGORY_ON_SOURCE_FOIL',['../namespacesnemo_1_1datamodel.html#a3aa3b36aad6ac4e2333037bbb03a04c5a44545546a68643756ab7aa98525bd4fe',1,'snemo::datamodel']]],
+  ['vertex_5fcategory_5fon_5fsource_5fgap_25148',['VERTEX_CATEGORY_ON_SOURCE_GAP',['../namespacesnemo_1_1datamodel.html#a3aa3b36aad6ac4e2333037bbb03a04c5ad1528b9c91277634c9bfe7d907d71edf',1,'snemo::datamodel']]],
+  ['vertex_5fcategory_5fon_5fwire_25149',['VERTEX_CATEGORY_ON_WIRE',['../namespacesnemo_1_1datamodel.html#a3aa3b36aad6ac4e2333037bbb03a04c5a43a38387a39a706390c509b5871c1d50',1,'snemo::datamodel']]],
+  ['vertex_5fcategory_5fon_5fx_5fcalorimeter_25150',['VERTEX_CATEGORY_ON_X_CALORIMETER',['../namespacesnemo_1_1datamodel.html#a3aa3b36aad6ac4e2333037bbb03a04c5a5dfc33ed626744bd02177fc853f7b9b8',1,'snemo::datamodel']]],
+  ['vertex_5fcategory_5fundef_25151',['VERTEX_CATEGORY_UNDEF',['../namespacesnemo_1_1datamodel.html#a3aa3b36aad6ac4e2333037bbb03a04c5a92c8672fab657cc9e49ddbb836051c3b',1,'snemo::datamodel']]],
+  ['vertex_5fextrapolation_5fhelix_25152',['VERTEX_EXTRAPOLATION_HELIX',['../namespacesnemo_1_1datamodel.html#a119ef795daa55322ac13a437af0148b4aa782c73fd115927896cd71c0282007aa',1,'snemo::datamodel']]],
+  ['vertex_5fextrapolation_5fline_25153',['VERTEX_EXTRAPOLATION_LINE',['../namespacesnemo_1_1datamodel.html#a119ef795daa55322ac13a437af0148b4a9a37c28e102e4354ffe55e43219dbf2c',1,'snemo::datamodel']]],
+  ['vertex_5fextrapolation_5fundef_25154',['VERTEX_EXTRAPOLATION_UNDEF',['../namespacesnemo_1_1datamodel.html#a119ef795daa55322ac13a437af0148b4a12534fb0ed79638a196f2c88b52ba14b',1,'snemo::datamodel']]],
+  ['vertex_5ffrom_5ffirst_25155',['VERTEX_FROM_FIRST',['../namespacesnemo_1_1datamodel.html#a44c36131145a55b77add1766a2660adea09338eefe08763724b599e9a8270a331',1,'snemo::datamodel']]],
+  ['vertex_5ffrom_5flast_25156',['VERTEX_FROM_LAST',['../namespacesnemo_1_1datamodel.html#a44c36131145a55b77add1766a2660adea58e73eaa6f10c2f52e31de8315c9f7fd',1,'snemo::datamodel']]],
+  ['vertex_5ffrom_5fundef_25157',['VERTEX_FROM_UNDEF',['../namespacesnemo_1_1datamodel.html#a44c36131145a55b77add1766a2660adea992a3492111abc50b6e0786a7017d43d',1,'snemo::datamodel']]]
+];

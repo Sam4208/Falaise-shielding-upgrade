@@ -1,0 +1,118 @@
+//! \file    falaise/version.h
+//! \brief   Describe the Falaise API version
+//! \details Querying the version of Falaise is needed at both
+//!          compile and runtime by clients so that they may adjust
+//!          their usage.
+//
+// Copyright (c) 2013 by Ben Morgan <bmorgan.warwick@gmail.com>
+// Copyright (c) 2013 by The University of Warwick
+//
+// This file is part of Falaise.
+//
+// Falaise is free software: you can redistribute it and/or modify
+// it under the terms of the GNU General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+//
+// Falaise is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+//
+// You should have received a copy of the GNU General Public License
+// along with Falaise.  If not, see <http://www.gnu.org/licenses/>.
+
+#ifndef FALAISE_VERSION_H
+#define FALAISE_VERSION_H
+// Standard Library
+#include <string>
+
+// Third Party
+// - A
+
+// This Project
+
+// - Make sure clang-format ignores generated code/macros
+// clang-format off
+
+//----------------------------------------------------------------------
+// - Compile Time API
+//! Major version number of falaise
+#define FALAISE_VERSION_MAJOR 5
+
+//! Minor version number of falaise
+#define FALAISE_VERSION_MINOR 1
+
+//! Patch version number of falaise
+#define FALAISE_VERSION_PATCH 6
+
+//! Encode falaise to ordered integer available at compile time
+#define FALAISE_ENCODE_VERSION(major, minor, patch) ( \
+        ((major) * 10000) \
+      + ((minor) *   100) \
+      + ((patch) *     1))
+
+//! Integer encoded falaise version available at compile time
+#define FALAISE_VERSION FALAISE_ENCODE_VERSION( \
+        FALAISE_VERSION_MAJOR, \
+        FALAISE_VERSION_MINOR, \
+        FALAISE_VERSION_PATCH)
+
+//! String encoded full version number, e.g. "1.2.3", available at compile time
+#define FALAISE_LIB_VERSION "5.1.6"
+
+//! Check current version >= (major, minor, patch) at compile time
+#define FALAISE_IS_AT_LEAST(major,minor,patch) ( \
+        FALAISE_VERSION >= \
+        FALAISE_ENCODE_VERSION(major,minor,patch))
+//clang-format on
+
+// Specific macros for SNRS support:
+#define FALAISE_SNRS_VERSION     "1.1.0"
+#define FALAISE_SNRS_INCLUDEDIR  "/sps/nemo/sw/redhat-9-x86_64/snsw/opt/snrs-1.1/include"
+#define FALAISE_SNRS_LIBDIR      "/sps/nemo/sw/redhat-9-x86_64/snsw/opt/snrs-1.1/lib"
+#define FALAISE_SNRS_RESOURCEDIR "/sps/nemo/sw/redhat-9-x86_64/snsw/opt/snrs-1.1/share/SNRS/resources"
+
+// Specific macros for configuration tag support:
+#define FALAISE_DEFAULT_GEOMETRY_TAG "urn:snemo:demonstrator:geometry:5.1"
+#define FALAISE_DEFAULT_GEOMETRY_VARIANT_TAG "urn:snemo:demonstrator:geometry:variants:service:3.0"
+#define FALAISE_DEFAULT_SETUP_TAG "urn:snemo:demonstrator:setup:2.1"
+#define FALAISE_DEFAULT_SETUP_VARIANT_TAG "urn:snemo:demonstrator:setup:variants:service:3.0"
+#define FALAISE_DEFAULT_SIMULATION_TAG "urn:snemo:demonstrator:simulation:2.5"
+#define FALAISE_DEFAULT_SIMULATION_VARIANT_TAG "urn:snemo:demonstrator:simulation:variants:service:3.0"
+#define FALAISE_DEFAULT_RECONSTRUCTION_TAG "urn:snemo:demonstrator:reconstruction:3.1"
+#define FALAISE_DEFAULT_RECONSTRUCTION_VARIANT_TAG "urn:snemo:demonstrator:reconstruction:3.1:variants:service:1.0"
+
+//----------------------------------------------------------------------
+// Runtime API
+namespace falaise {
+//! \brief Describe the falaise API version and features
+struct version {
+//! Return the major version number of falaise, e.g., 1 for '1.2.3'
+static int get_major();
+
+//! Return the minor version number of falaise, e.g., 2 for '1.2.3'
+static int get_minor();
+
+//! Return the patch version number of falaise, e.g., 3 for '1.2.3'
+static int get_patch();
+
+//! Return the first eight characters of the current Git HEAD hash
+static std::string get_commit();
+
+//! Return true when a build from Git used modified, uncommitted changes
+static bool is_dirty();
+
+//! Return the full version number of falaise as a string, e.g., '1.2.3'
+static std::string get_version();
+
+//! Return true if the current falaise version >= (major, minor, patch)
+static bool is_at_least(int major, int minor, int patch);
+
+//! Return true if the named feature is available in falaise
+static bool has_feature(const std::string& feature);
+};
+} // namespace falaise
+
+#endif // FALAISE_VERSION_H
+

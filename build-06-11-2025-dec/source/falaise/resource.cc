@@ -1,0 +1,198 @@
+// falaise/resource.cc - Implementation of falaise resource
+//
+// Copyright (c) 2013 by Ben Morgan <bmorgan.warwick@gmail.com>
+// Copyright (c) 2013 by The University of Warwick
+//
+// This file is part of falaise.
+//
+// falaise is free software: you can redistribute it and/or modify
+// it under the terms of the GNU General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+//
+// falaise is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+//
+// You should have received a copy of the GNU General Public License
+// along with falaise.  If not, see <http://www.gnu.org/licenses/>.
+
+// Ourselves
+#include <falaise/resource.h>
+#include "falaise_binreloc.h"
+
+// Standard Library
+#include <iostream>
+#include <fstream>
+#include <cstdlib>
+
+// Third Party
+// Boost
+
+// Mute some specific warnings in Boost <=1.55:
+#if defined (__clang__)
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wshadow"
+#endif
+#if defined (__GNUC__)
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wshadow"
+// 2016-03-15 XG: from http://stackoverflow.com/questions/1814548/boostsystem-category-defined-but-not-used
+#define BOOST_SYSTEM_NO_DEPRECATED 1
+#endif
+
+#include <boost/filesystem.hpp>
+
+#if defined (__GNUC__)
+#pragma GCC diagnostic pop
+#undef BOOST_SYSTEM_NO_DEPRECATED
+#endif
+#if defined (__clang__)
+#pragma clang diagnostic pop
+#endif
+
+// - datatools
+#include <datatools/exception.h>
+#include <datatools/logger.h>
+
+// This Project
+#include <falaise/version.h>
+
+namespace {
+
+  //! Convert BrInitError code to a string describing the error
+  //! \todo add errno to returned string
+  std::string BRErrorAsString(const BrInitError& err) {
+    std::string errMsg;
+    switch (err) {
+    case BR_INIT_ERROR_NOMEM:
+      errMsg = "Unable to open /proc/self/maps";
+      break;
+    case BR_INIT_ERROR_OPEN_MAPS:
+      errMsg =  "Unable to read from /proc/self/maps";
+      break;
+    case BR_INIT_ERROR_READ_MAPS:
+      errMsg = "The file format of /proc/self/maps";
+      break;
+    case BR_INIT_ERROR_INVALID_MAPS:
+      errMsg = "The file format of /proc/self/maps is invalid";
+      break;
+    case BR_INIT_ERROR_DISABLED:
+      errMsg = "Binary relocation disabled";
+      break;
+    default:
+      BOOST_ASSERT_MSG(1,"Invalid BrInitError");
+    }
+    return errMsg;
+  }
+
+  //! Return relative path from library directory to root of resource dir
+  std::string relativePathToResourceDir() {
+    return "../share/Falaise-5.1.6/resources";
+  }
+
+  //! Return relative path from library directory to root of plugin/module DLL dir
+  std::string relativePathToPluginLibDir() {
+    return "Falaise/modules";
+  }
+
+  //! Return relative path from library directory to root of data dir
+  std::string relativePathToDataRootDir() {
+    return "../share/Falaise-5.1.6";
+  }
+
+  std::string getLibraryDir() {
+    char* exePath(nullptr);
+    exePath = br_find_exe_dir("");
+    boost::filesystem::path sExePath(exePath);
+    free(exePath);
+    boost::filesystem::path cExePath = boost::filesystem::canonical(sExePath);
+    return cExePath.string();
+  }
+
+} // namespace
+
+
+namespace falaise {
+
+  void init_resources() {
+    BrInitError err;
+    int initSuccessful = br_init_lib(&err);
+    DT_THROW_IF(initSuccessful != 1,
+                falaise::ResourceInitializationException,
+                "resource initialization failed : "
+                << err
+                << " ("
+                << BRErrorAsString(err)
+                << ")");
+  }
+
+  std::string get_resource_dir() {
+    boost::filesystem::path tmpPath;
+    if (const char* envPath = std::getenv(kResourceOverrideVarName)) {
+      tmpPath = envPath;
+    }
+    else {
+      tmpPath = getLibraryDir();
+      tmpPath /= relativePathToResourceDir();
+    }
+    boost::filesystem::path absPath = boost::filesystem::canonical(tmpPath);
+    return absPath.string();
+  }
+
+  std::string get_resource(const std::string& rname) {
+    boost::filesystem::path rnamePath(rname);
+    DT_THROW_IF(rnamePath.is_absolute(),
+                std::logic_error,
+                "resource name cannot be absolute");
+
+    boost::filesystem::path expectedResource = get_resource_dir() / rnamePath;
+
+    DT_THROW_IF(!boost::filesystem::exists(expectedResource),
+                std::runtime_error,
+                "Requested resource '"
+                << rname
+                << "' does not exists at resolved path '"
+                << expectedResource << "'");
+    // TODO: Check readability?
+    return expectedResource.string();
+  }
+
+  bool resources_overriden() {
+    return std::getenv(kResourceOverrideVarName) == nullptr;
+  }
+
+  std::string get_plugin_dir() {
+    boost::filesystem::path tmpPath(getLibraryDir());
+    tmpPath /= relativePathToPluginLibDir();
+    boost::filesystem::path absPath = boost::filesystem::canonical(tmpPath);
+    return absPath.string();
+  }
+
+  std::string get_plugin(const std::string& rname) {
+    boost::filesystem::path rnamePath(rname);
+    DT_THROW_IF(rnamePath.is_absolute(),
+                std::logic_error,
+                "plugin path cannot be absolute");
+
+    boost::filesystem::path expectedResource = get_plugin_dir() / rnamePath;
+
+    DT_THROW_IF(!boost::filesystem::exists(expectedResource),
+                std::runtime_error,
+                "Requested plugin '"
+                << rname
+                << "' does not exists at resolved path '"
+                << expectedResource << "'");
+    // TODO: Check readability?
+    return expectedResource.string();
+  }
+
+  //! Return URL, i.e. a path, to the root data directory for Falaise
+  std::string get_data_root_dir() {
+    boost::filesystem::path tmpPath(getLibraryDir());
+    tmpPath /= relativePathToDataRootDir();
+    boost::filesystem::path absPath = boost::filesystem::canonical(tmpPath);
+    return absPath.string();
+  }
+} // namespace falaise

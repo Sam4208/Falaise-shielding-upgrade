@@ -229,7 +229,31 @@ namespace snemo {
 	DT_LOG_NOTICE(get_logging_priority(), "tracker height calibration method = '" << tracker_height_method_label << "'");
 	_pcd2cd_tracker_height_method_ = TRACKER_HEIGHT_NON_LINEAR_R5R6;
 
-      } else if (!tracker_height_method_label.empty()) {
+      } else if (tracker_height_method_label == "linear_single_r5r6_error") {
+	DT_LOG_NOTICE(get_logging_priority(), "tracker height calibration method = '" << tracker_height_method_label << "'");
+	_pcd2cd_tracker_height_method_ = TRACKER_HEIGHT_LINEAR_SINGLE_TS_R5R6_ERROR;
+
+	// Initialise tracker cons
+	_pcd2cd_tracker_ppt_constants_.reserve(2034);
+	for (int tr_cell=0; tr_cell<2034; tr_cell++)
+	_pcd2cd_tracker_ppt_constants_.push_back({0});
+
+	// Fill calo pol0 energy constants
+	std::string ppt_table_path = fps.get<std::string>("tracker_ppt_method.database");
+	datatools::fetch_path_with_env(ppt_table_path);
+	int nb_entries = this->parse_calibration_constants(ppt_table_path, _pcd2cd_tracker_ppt_constants_);
+	DT_LOG_NOTICE(get_logging_priority(), "`- " << nb_entries << " entries parsed in '" << ppt_table_path << "'");
+
+	_pcd2cd_tracker_height_error_single_ts_top_a_ = fps.get<falaise::length_t>("tracker_height_error_single_ts_top_a", {3.0, "cm"})();
+	_pcd2cd_tracker_height_error_single_ts_top_b_ = fps.get<falaise::length_t>("tracker_height_error_single_ts_top_b", {3.0, "cm"})();
+	_pcd2cd_tracker_height_error_single_ts_bot_a_ = fps.get<falaise::length_t>("tracker_height_error_single_ts_bot_a", {3.0, "cm"})();
+	_pcd2cd_tracker_height_error_single_ts_bot_b_ = fps.get<falaise::length_t>("tracker_height_error_single_ts_bot_b", {3.0, "cm"})();
+
+	} else if (tracker_height_method_label == "linear_r5r6_error") {
+	DT_LOG_NOTICE(get_logging_priority(), "tracker height calibration method = '" << tracker_height_method_label << "'");
+	_pcd2cd_tracker_height_method_ = TRACKER_HEIGHT_LINEAR_R5R6_ERROR;
+
+	} else if (!tracker_height_method_label.empty()) {
 	DT_LOG_ERROR(get_logging_priority(), "wrong tracker height calibration method '" << tracker_height_method_label << "'");
 	_pcd2cd_tracker_height_method_ = TRACKER_HEIGHT_NONE;
 
@@ -649,14 +673,87 @@ namespace snemo {
 	if (has_both_cathode) {
 	  const double plasma_propagation_time = bottom_cathode_drift_time + top_cathode_drift_time;
 	  const double z_norm = (bottom_cathode_drift_time-top_cathode_drift_time)/plasma_propagation_time;
-	  const double z_norm_non_linear = z_norm - K * H * z_norm * (1 - std::abs(z_norm));
+	  const double z_norm_non_linear = z_norm - (K *0.5 * z_norm * (1 - std::abs(z_norm)));
 	  const double z_abs = z_norm_non_linear * H  + H0;
+	  double z_error_theory = _pcd2cd_tracker_height_error_*sqrt(1-pow(z_norm,2));
+	  double z_error_limit = _pcd2cd_tracker_height_error_*pow(3,-1);
+	  const double z_error = std::max(z_error_theory, z_error_limit);
 	  cd_tracker_hit_.set_z(z_abs);
 	  // todo: error model
-	  cd_tracker_hit_.set_sigma_z(_pcd2cd_tracker_height_error_);
+	  cd_tracker_hit_.set_sigma_z(z_error);
 	}
 
       }
+
+      else if (_pcd2cd_tracker_height_method_ == TRACKER_HEIGHT_LINEAR_SINGLE_TS_R5R6_ERROR) {
+
+	const double H = _pcd2cd_tracker_height_effective_;
+	const double H0 = _pcd2cd_tracker_height_offset_;
+	const double error_single_ts_bot_a = _pcd2cd_tracker_height_error_single_ts_bot_a_;
+	const double error_single_ts_bot_b = _pcd2cd_tracker_height_error_single_ts_bot_b_;
+	const double error_single_ts_top_a = _pcd2cd_tracker_height_error_single_ts_top_a_;
+	const double error_single_ts_top_b = _pcd2cd_tracker_height_error_single_ts_top_b_;
+
+	if (has_both_cathode) {
+	  const double plasma_propagation_time = bottom_cathode_drift_time + top_cathode_drift_time;
+	  const double z_norm = (bottom_cathode_drift_time-top_cathode_drift_time)/plasma_propagation_time;
+	  const double z_abs = z_norm * H  + H0;
+	  double z_error_theory = _pcd2cd_tracker_height_error_*sqrt(1-pow(z_norm,2));
+	  double z_error_limit = _pcd2cd_tracker_height_error_*pow(3,-1);
+	  const double z_error = std::max(z_error_theory, z_error_limit);
+	  cd_tracker_hit_.set_z(z_abs);
+	  cd_tracker_hit_.set_sigma_z(z_error);
+	}
+
+    else if (has_bottom_cathode) {
+	  const double plasma_propagation_time = _pcd2cd_tracker_ppt_constants_.at(snemo::datamodel::gg_num(pcd_tracker_hit_.get_geom_id()));
+	  if (bottom_cathode_drift_time<plasma_propagation_time){
+	  const double z_norm = ((2*bottom_cathode_drift_time)-plasma_propagation_time)/plasma_propagation_time;
+	  const double z_abs = z_norm * H  + H0; 
+	  double z_error_theory = sqrt((pow(error_single_ts_bot_a,2)*pow(1+z_norm,2))+(pow(error_single_ts_bot_b,2)*(1+z_norm)));
+	  double z_error_limit = sqrt((pow(error_single_ts_bot_a,2)*pow(1,2))+(pow(error_single_ts_bot_b,2)*(1)))*pow(3,-1);
+	  const double z_error = std::max(z_error_theory, z_error_limit);
+	  cd_tracker_hit_.set_z(z_abs);
+	  cd_tracker_hit_.set_sigma_z(z_error);
+	}}
+
+	else if (has_top_cathode) {
+	  const double plasma_propagation_time = _pcd2cd_tracker_ppt_constants_.at(snemo::datamodel::gg_num(pcd_tracker_hit_.get_geom_id()));
+	  if (top_cathode_drift_time<plasma_propagation_time){
+	  const double z_norm = (plasma_propagation_time-(2*top_cathode_drift_time))/plasma_propagation_time;
+	  const double z_abs = z_norm * H  + H0;
+	  double z_error_theory = sqrt((pow(error_single_ts_top_a,2)*pow(1-z_norm,2))+(pow(error_single_ts_top_b,2)*(1-z_norm)));
+	  double z_error_limit = sqrt((pow(error_single_ts_top_a,2)*pow(1,2))+(pow(error_single_ts_top_b,2)*(1)))*pow(3,-1);
+	  const double z_error = std::max(z_error_theory, z_error_limit);
+	  cd_tracker_hit_.set_z(z_abs);
+	  cd_tracker_hit_.set_sigma_z(z_error);
+	}}
+      }
+
+	if (_pcd2cd_tracker_height_method_ == TRACKER_HEIGHT_LINEAR_R5R6_ERROR) {
+
+	const double H = _pcd2cd_tracker_height_effective_;
+	const double H0 = _pcd2cd_tracker_height_offset_;
+
+	if (has_both_cathode) {
+	  const double plasma_propagation_time = bottom_cathode_drift_time + top_cathode_drift_time;
+	  const double z_norm = (bottom_cathode_drift_time-top_cathode_drift_time)/plasma_propagation_time;
+	  const double z_abs = z_norm * H  + H0;
+	  double z_error_theory = _pcd2cd_tracker_height_error_*sqrt(1-pow(z_norm,2));
+	  double z_error_limit = _pcd2cd_tracker_height_error_*pow(3,-1);
+	  const double z_error = std::max(z_error_theory, z_error_limit);
+	  cd_tracker_hit_.set_z(z_abs);
+	  cd_tracker_hit_.set_sigma_z(z_error);
+	}
+      }
+
+      
+
+
+      
+
+
+
 
       // } else if (_pcd2cd_tracker_height_method_ == TRACKER_HEIGHT_XXX) {
       // 	// [...]
