@@ -15,7 +15,7 @@
   shape_type : string = "cylinder"
     r : real as length = 25.5 mm
     z : real as length = 30.0 mm
-  material.ref : string = "basic::delrin"
+  material.ref : string = "thermal_physics::delrin"
   visibility.hidden : boolean = false
   visibility.color  : string  = "orange"
 
@@ -35,4 +35,3 @@
   visibility.color            : string  = "cyan"
   visibility.daughters.hidden : boolean = true
   mapping.filled.daughter_id.bulb : string = "[calorimeter_pmt_glass]"
-
