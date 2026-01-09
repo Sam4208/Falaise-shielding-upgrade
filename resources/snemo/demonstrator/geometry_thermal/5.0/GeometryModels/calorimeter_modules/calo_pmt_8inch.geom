@@ -15,7 +15,7 @@
   shape_type : string = "cylinder"
     r : real as length = 27.5 mm
     z : real as length =  3.0 mm
-  material.ref : string = "basic::delrin"
+  material.ref : string = "thermal_physics::delrin"
   visibility.hidden : boolean = false
   visibility.color  : string  = "orange"
 

@@ -8,7 +8,7 @@
     x : real as length = 3100 mm 
     y : real as length = 1149 mm
     z : real as length =  180 mm
-  material.ref : string = "thermal_physics::iron"
+  material.ref : string = "basic::iron"
   visibility.hidden           : boolean = false
   visibility.hidden_envelope  : boolean = false
   visibility.daughters.hidden : boolean = false
@@ -20,7 +20,7 @@
     x : real as length = 3100 mm 
     y : real as length = 1149 mm
     z : real as length =  200 mm
-  material.ref : string = "thermal_physics::polyethylene"
+  material.ref : string = "basic::polyethylene"
   visibility.hidden           : boolean = false
   visibility.hidden_envelope  : boolean = false
   visibility.daughters.hidden : boolean = false
@@ -33,7 +33,7 @@
     x : real as length = 3100 mm 
     y : real as length = 2583 mm
     z : real as length =  180 mm
-  material.ref : string = "thermal_physics::iron"
+  material.ref : string = "basic::iron"
   visibility.hidden           : boolean = false
   visibility.hidden_envelope  : boolean = false
   visibility.daughters.hidden : boolean = false
@@ -46,7 +46,7 @@
     x : real as length = 3100 mm 
     y : real as length = 2583 mm
     z : real as length =  200 mm
-  material.ref : string = "thermal_physics::polyethylene"
+  material.ref : string = "basic::polyethylene"
   visibility.hidden           : boolean = false
   visibility.hidden_envelope  : boolean = false
   visibility.daughters.hidden : boolean = false
@@ -59,7 +59,7 @@
     x : real as length = 3100 mm 
     y : real as length = 25.5 mm
     z : real as length = 570 mm
-  material.ref : string = "thermal_physics::iron"
+  material.ref : string = "basic::iron"
   visibility.hidden           : boolean = false
   visibility.hidden_envelope  : boolean = false
   visibility.daughters.hidden : boolean = false
@@ -71,7 +71,7 @@
     x : real as length = 3100 mm 
     y : real as length = 300 mm
     z : real as length = 30 mm
-  material.ref : string = "thermal_physics::iron"
+  material.ref : string = "basic::iron"
   visibility.hidden           : boolean = false
   visibility.hidden_envelope  : boolean = false
   visibility.daughters.hidden : boolean = false
@@ -166,7 +166,7 @@
     # z : real as length =  400 mm
     y : real as length = 938 mm
     z : real as length =  398 mm
-  material.ref : string = "thermal_physics::iron"
+  material.ref : string = "basic::iron"
   visibility.hidden           : boolean = false
   visibility.hidden_envelope  : boolean = false
   visibility.daughters.hidden : boolean = false
@@ -179,7 +179,7 @@
     y : real as length = 1668 mm
     #z : real as length =  6138 mm
     z : real as length =  6157 mm
-  material.ref : string = "thermal_physics::iron"
+  material.ref : string = "basic::iron"
   visibility.hidden           : boolean = false
   visibility.hidden_envelope  : boolean = false
   visibility.daughters.hidden : boolean = false
@@ -193,7 +193,7 @@
     y : real as length = 1000 mm
     #z : real as length =  6138 mm
     z : real as length =  6157 mm
-  material.ref : string = "thermal_physics::iron"
+  material.ref : string = "basic::iron"
   visibility.hidden           : boolean = false
   visibility.hidden_envelope  : boolean = false
   visibility.daughters.hidden : boolean = false
@@ -207,7 +207,7 @@
     y : real as length = 1197 mm
     z : real as length =  6157 mm
     #z : real as length =  6138 mm
-  material.ref : string = "thermal_physics::iron"
+  material.ref : string = "basic::iron"
   visibility.hidden           : boolean = false
   visibility.hidden_envelope  : boolean = false
   visibility.daughters.hidden : boolean = false
@@ -384,7 +384,7 @@
     x : real as length = 2800 mm 
     y : real as length = 180 mm
     z : real as length =  6138 mm
-  material.ref : string = "thermal_physics::iron"
+  material.ref : string = "basic::iron"
   visibility.hidden           : boolean = false
   visibility.hidden_envelope  : boolean = false
   visibility.daughters.hidden : boolean = false
@@ -397,7 +397,7 @@
     x : real as length = 510 mm 
     y : real as length = 15 mm
     z : real as length =  6138 mm
-  material.ref : string = "thermal_physics::iron"
+  material.ref : string = "basic::iron"
   visibility.hidden           : boolean = false
   visibility.hidden_envelope  : boolean = false
   visibility.daughters.hidden : boolean = false
@@ -446,7 +446,7 @@
     x : real as length = 3650 mm 
     y : real as length = 8800 mm
     z : real as length = 180 mm
-  material.ref : string = "thermal_physics::iron"
+  material.ref : string = "basic::iron"
   visibility.hidden           : boolean = false
   visibility.color            : string  = "black"
 

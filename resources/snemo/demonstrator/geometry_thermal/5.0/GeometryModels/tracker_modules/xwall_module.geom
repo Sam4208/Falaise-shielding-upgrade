@@ -6,7 +6,7 @@
     x : real as length = 200.0 mm
     y : real as length = 208.5 mm
     z : real as length = 150.0 mm
-  material.ref : string = "ENVINET_PS_scintillator"
+  material.ref : string = "thermal_physics::ENVINET_PS_scintillator"
   visibility.color  : string = "blue"
   sensitive.category : string = "xcalorimeter_SD"
 
@@ -16,7 +16,7 @@
     x : real as length = 200.0 mm
     y : real as length = 208.5 mm
     z : real as length = 12.0 um
-  material.ref : string = "basic::mylar"
+  material.ref : string = "thermal_physics::mylar"
   visibility.color  : string = "green"
 
 [name="xwall_scin_side_x_external_wrapper.model" type="geomtools::simple_shaped_model"]
@@ -24,7 +24,7 @@
     x : real as length = 12.0 um
     y : real as length = 208.5 mm
     z : real as length = 150.0 mm
-  material.ref : string = "basic::mylar"
+  material.ref : string = "thermal_physics::mylar"
   visibility.color  : string = "green"
 
 
@@ -75,7 +75,7 @@
     x : real as length = 200.0 mm
     y : real as length = 12.0 um
     z : real as length = 150.0 mm
-  material.ref : string = "basic::mylar"
+  material.ref : string = "thermal_physics::mylar"
   visibility.color  : string = "green"
 
 
@@ -127,7 +127,7 @@
   y      : real as length = 208.5 mm
   z      : real as length = 12.0 um
   r_hole : real as length = 70.0 mm
-  material.ref : string = "basic::mylar"
+  material.ref : string = "thermal_physics::mylar"
   visibility.hidden_envelope : boolean = false
   visibility.color  : string = "green"
 
@@ -136,7 +136,7 @@
   shape_type : string = "cylinder"
     r : real as length =  64.0 mm
     z : real as length =   3.5 mm
-  material.ref : string = "basic::plexiglass"
+  material.ref : string = "thermal_physics::PMMA"
   visibility.color  : string = "blue"
 
 
@@ -171,7 +171,7 @@
   y      : real as length = 212.0 mm
   z      : real as length =  6.0 mm
   r_hole : real as length = 77.5 mm
-  material.ref : string = "basic::iron"
+  material.ref : string = "thermal_physics::iron"
   visibility.color  : string = "red"
 
 
@@ -180,7 +180,7 @@
     x : real as length = 319.0 mm
     y : real as length = 212.0 mm
     z : real as length =  6.0 mm
-  material.ref : string = "basic::iron"
+  material.ref : string = "thermal_physics::iron"
   visibility.color  : string = "red"
 
 
@@ -199,7 +199,7 @@
   r_sphere    : real as length = 82.0 mm
   r_extrusion : real as length = 62.5 mm
   bottom      : boolean = true
-  material.ref : string = "basic::plexiglass"
+  material.ref : string = "thermal_physics::PMMA"
   visibility.color  : string = "blue"
 
 

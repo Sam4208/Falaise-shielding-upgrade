@@ -19,7 +19,7 @@
   x : real as length = 10000.0 mm
   y : real as length = 10000.0 mm
   z : real as length =  2300.0 mm
-  material.ref : string = "thermal_physics::concrete"
+  material.ref : string = "basic::concrete"
   visibility.color : string  = "brown"
 
 

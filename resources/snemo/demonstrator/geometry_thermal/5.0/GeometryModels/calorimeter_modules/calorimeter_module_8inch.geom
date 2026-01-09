@@ -29,7 +29,7 @@
 #   r_sphere    : real as length = 120.0 mm
 #   r_extrusion : real as length = 108.15 mm
 #   bottom      : boolean = true
-#   material.ref : string  = "ENVINET_PS_scintillator"
+#   material.ref : string  = "thermal_physics::ENVINET_PS_scintillator"
 #   visibility.hidden : boolean = false
 #   visibility.color  : string  = "blue"
 #   sensitive.category : string = "calorimeter_SD"
@@ -38,7 +38,7 @@
 [name="calorimeter_scin_block_8inch_back.model" type="geomtools::simple_shaped_model"]
   shape_build_mode : string = "factory"
   shape_ref : string = "calorimeter_8inch_scin_block_extruded"
-  material.ref : string  = "ENVINET_PS_scintillator"
+  material.ref : string  = "thermal_physics::ENVINET_PS_scintillator"
   visibility.hidden : boolean = false
   visibility.color  : string  = "blue"
   sensitive.category : string = "calorimeter_SD"
@@ -59,7 +59,7 @@
   y      : real as length = 242.0 mm
   z      : real as length =   3.0 mm
   r_hole : real as length = 113.0 mm
-  material.ref : string  = "basic::iron"
+  material.ref : string  = "thermal_physics::iron"
   visibility.hidden : boolean = false
   visibility.color  : string  = "red"
 

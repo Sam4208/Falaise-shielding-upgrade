@@ -8,7 +8,7 @@
     x : real as length = 3100 mm 
     y : real as length = 1647 mm
     z : real as length =  260 mm
-  material.ref : string = "thermal_physics::polyethylene"
+  material.ref : string = "basic::polyethylene"
   visibility.hidden           : boolean = false
   visibility.hidden_envelope  : boolean = false
   visibility.daughters.hidden : boolean = false
@@ -20,7 +20,7 @@
     x : real as length = 3100 mm 
     y : real as length = 1149 mm
     z : real as length =  260 mm
-  material.ref : string = "thermal_physics::polyethylene"
+  material.ref : string = "basic::polyethylene"
   visibility.hidden           : boolean = false
   visibility.hidden_envelope  : boolean = false
   visibility.daughters.hidden : boolean = false
@@ -33,7 +33,7 @@
     x : real as length = 3100 mm 
     y : real as length = 2583 mm
     z : real as length =  260 mm
-  material.ref : string = "thermal_physics::polyethylene"
+  material.ref : string = "basic::polyethylene"
   visibility.hidden           : boolean = false
   visibility.hidden_envelope  : boolean = false
   visibility.daughters.hidden : boolean = false
@@ -46,7 +46,7 @@
     x : real as length = 3100 mm 
     y : real as length = 30 mm
     z : real as length =  260 mm
-  material.ref : string = "thermal_physics::iron"
+  material.ref : string = "basic::iron"
   visibility.hidden           : boolean = false
   visibility.hidden_envelope  : boolean = false
   visibility.daughters.hidden : boolean = false
@@ -134,7 +134,7 @@
     x : real as length = 5220 mm 
     y : real as length = 9000 mm
     z : real as length = 260 mm
-  material.ref : string = "thermal_physics::polyethylene"
+  material.ref : string = "basic::polyethylene"
   visibility.hidden           : boolean = false
   visibility.color            : string  = "orange"
 
@@ -147,7 +147,7 @@
     x : real as length = 5220 mm 
     y : real as length = 240 mm
     z : real as length = 6600 mm
-  material.ref : string = "thermal_physics::polyethylene"
+  material.ref : string = "basic::polyethylene"
   visibility.hidden : boolean = false
   visibility.color  : string  = "orange"
 

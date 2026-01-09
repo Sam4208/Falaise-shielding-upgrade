@@ -1,5 +1,6 @@
 #/////////////////////////////ART Model/////////////////////////////////
 
+
 #///////////////Fr - It Walls////////////////
 
 [name="art_panel_fr_it.model" type="geomtools::simple_boxed_model"]
@@ -8,7 +9,7 @@ shape_type : string = "box"
     x : real as length = 5 mm
     y : real as length = 1200 mm
     z : real as length = 4500 mm
-material.ref : string = "thermal_physics::polyethylene"
+material.ref : string = "basic::polyethylene"
 visibility.color : string  = "grey"
 
 
@@ -18,7 +19,7 @@ shape_type : string = "box"
     x : real as length = 5 mm
     y : real as length = 1000 mm
     z : real as length = 4500 mm
-material.ref : string = "thermal_physics::polyethylene"
+material.ref : string = "basic::polyethylene"
 visibility.color : string  = "grey"
 
 
@@ -28,7 +29,7 @@ shape_type : string = "box"
     x : real as length = 11.5 mm
     y : real as length = 40 mm
     z : real as length = 4500 mm
-material.ref : string = "thermal_physics::iron"
+material.ref : string = "basic::iron"
 visibility.color : string  = "cyan"
 
 
@@ -38,7 +39,7 @@ shape_type : string = "box"
     x : real as length = 40 mm
     y : real as length = 7300 mm
     z : real as length = 11.5 mm
-material.ref : string = "thermal_physics::iron"
+material.ref : string = "basic::iron"
 visibility.color : string  = "cyan"
 
 
@@ -131,7 +132,7 @@ shape_type : string = "box"
     x : real as length = 1300 mm
     y : real as length = 5 mm
     z : real as length = 3600 mm
-material.ref : string = "thermal_physics::polyethylene"
+material.ref : string = "basic::polyethylene"
 visibility.color : string  = "grey"
 
 
@@ -141,7 +142,7 @@ shape_type : string = "box"
     x : real as length = 40 mm
     y : real as length = 11.5 mm
     z : real as length = 3600 mm
-material.ref : string = "thermal_physics::iron"
+material.ref : string = "basic::iron"
 visibility.color : string  = "cyan"
 
 
@@ -152,7 +153,7 @@ shape_type : string = "box"
     x : real as length = 2760 mm
     y : real as length = 11.5 mm
     z : real as length = 40 mm
-material.ref : string = "thermal_physics::iron"
+material.ref : string = "basic::iron"
 visibility.color : string  = "cyan"
   
 
@@ -194,7 +195,7 @@ shape_type : string = "box"
     x : real as length = 1380 mm
     y : real as length = 5 mm
     z : real as length = 850 mm
-material.ref : string = "thermal_physics::iron"
+material.ref : string = "basic::iron"
 visibility.color : string  = "blue"
 
 
@@ -241,7 +242,7 @@ shape_type : string = "box"
     x : real as length = 2700 mm
     y : real as length = 1350 mm
     z : real as length = 5 mm
-material.ref : string = "thermal_physics::polyethylene"
+material.ref : string = "basic::polyethylene"
 visibility.color : string  = "grey"
 
 
@@ -251,7 +252,7 @@ shape_type : string = "box"
     x : real as length = 2700 mm
     y : real as length = 40 mm
     z : real as length = 11.5 mm
-material.ref : string = "thermal_physics::iron"
+material.ref : string = "basic::iron"
 visibility.color : string  = "cyan"
 
 
@@ -262,7 +263,7 @@ shape_type : string = "box"
     # y : real as length = 7300 mm
     y : real as length = 7150 mm
     z : real as length = 11.5 mm
-material.ref : string = "thermal_physics::iron"
+material.ref : string = "basic::iron"
 visibility.color : string  = "cyan"
 
 

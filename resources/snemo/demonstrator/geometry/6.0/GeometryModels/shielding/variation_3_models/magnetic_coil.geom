@@ -190,7 +190,7 @@
     x : real as length = 13 mm
     y : real as length = 333 mm
     z : real as length = 3397 mm
-  material.ref : string = "thermal_physics::iron"
+  material.ref : string = "basic::iron"
   visibility.hidden : boolean = false
   visibility.color  : string  = "blue"
 
@@ -242,7 +242,7 @@
     x : real as length = 13 mm
     y : real as length = 5317 mm
     z : real as length = 333 mm
-  material.ref : string = "thermal_physics::iron"
+  material.ref : string = "basic::iron"
   visibility.hidden : boolean = false
   visibility.color  : string  = "blue"
 
@@ -289,7 +289,7 @@
     x : real as length = 800 mm
     y : real as length = 13 mm
     z : real as length = 333 mm
-  material.ref : string = "thermal_physics::iron"
+  material.ref : string = "basic::iron"
   visibility.hidden           : boolean = false
   visibility.color            : string  = "blue"
  
@@ -355,7 +355,7 @@
     x : real as length = 620 mm
     y : real as length = 13 mm
     z : real as length =  3397 mm
-  material.ref : string = "thermal_physics::iron"
+  material.ref : string = "basic::iron"
   visibility.hidden           : boolean = false
   visibility.color            : string  = "blue"
 

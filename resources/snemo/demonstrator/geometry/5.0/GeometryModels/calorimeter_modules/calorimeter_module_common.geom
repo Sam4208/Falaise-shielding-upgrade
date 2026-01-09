@@ -10,7 +10,7 @@
     x : real as length = 256.0 mm
     y : real as length = 256.0 mm
     z : real as length =  31.0 mm
-  material.ref : string  = "thermal_physics::ENVINET_PS_scintillator"
+  material.ref : string  = "ENVINET_PS_scintillator"
   visibility.hidden : boolean = false
   visibility.color  : string  = "blue"
   sensitive.category : string = "calorimeter_SD"
@@ -21,7 +21,7 @@
     x : real as length = 259.0 mm
     y : real as length = 259.0 mm
     z : real as length =  25.0 um
-  material.ref : string  = "thermal_physics::nylon"
+  material.ref : string  = "basic::nylon"
   visibility.hidden : boolean = false
   visibility.color  : string  = "magenta"
 
@@ -41,7 +41,7 @@
     x : real as length   = 256.0 mm
     y : real as length   = 256.0 mm
     z : real as length   =  12.0 um
-  material.ref : string  = "thermal_physics::mylar"
+  material.ref : string  = "basic::mylar"
   visibility.hidden : boolean = false
   visibility.color  : string  = "green"
 
@@ -68,7 +68,7 @@
     x : real as length =  12.0 um
     y : real as length = 256.0 mm
     z : real as length =  31.0 mm
-  material.ref : string = "thermal_physics::mylar"
+  material.ref : string = "basic::mylar"
   visibility.hidden : boolean = false
   visibility.color  : string  = "green"
 
@@ -114,7 +114,7 @@
     x : real as length = 256.0 mm
     y : real as length =  12.0 um
     z : real as length =  31.0 mm
-  material.ref : string = "thermal_physics::mylar"
+  material.ref : string = "basic::mylar"
   visibility.hidden : boolean = false
   visibility.color  : string  = "green"
 
@@ -180,7 +180,7 @@
     x : real as length =  12.0 um
     y : real as length = 236.0 mm
     z : real as length = 163.0 mm
-  material.ref : string = "thermal_physics::mylar"
+  material.ref : string = "basic::mylar"
   visibility.hidden : boolean = false
   visibility.color  : string  = "green"
 
@@ -226,7 +226,7 @@
     x : real as length = 236.0 mm
     y : real as length =  12.0 um
     z : real as length = 163.0 mm
-  material.ref : string = "thermal_physics::mylar"
+  material.ref : string = "basic::mylar"
   visibility.hidden : boolean = false
   visibility.color  : string  = "green"
 
@@ -272,7 +272,7 @@
     x : real as length =   3.0 mm
     y : real as length = 249.0 mm
     z : real as length = 420.0 mm
-  material.ref : string = "thermal_physics::iron"
+  material.ref : string = "basic::iron"
   visibility.hidden : boolean = false
   visibility.color  : string  = "red"
 
@@ -282,7 +282,7 @@
     x : real as length = 243.0 mm
     y : real as length =   3.0 mm
     z : real as length = 420.0 mm
-  material.ref : string  = "thermal_physics::iron"
+  material.ref : string  = "basic::iron"
   visibility.hidden : boolean = false
   visibility.color  : string  = "red"
 
@@ -292,7 +292,7 @@
     x : real as length =   3.0 mm
     y : real as length = 230.0 mm
     z : real as length = 400.0 mm
-  material.ref : string = "thermal_physics::PMMA"
+  material.ref : string = "basic::plexiglass"
   visibility.hidden : boolean = false
   visibility.color  : string  = "blue"
 
@@ -302,7 +302,7 @@
   y      : real as length = 243.0 mm
   z      : real as length =   6.0 mm
   r_hole : real as length = 100.0 mm
-  material.ref : string  = "thermal_physics::PMMA"
+  material.ref : string  = "basic::PMMA"
   visibility.hidden : boolean = false
   visibility.color  : string  = "blue"
 
@@ -311,7 +311,7 @@
   shape_type : string = "cylinder"
     z : real as length =   6.0 mm
     r : real as length = 110.0 mm
-  material.ref : string  = "thermal_physics::PMMA"
+  material.ref : string  = "basic::PMMA"
   visibility.hidden : boolean = false
   visibility.color  : string  = "blue"
 

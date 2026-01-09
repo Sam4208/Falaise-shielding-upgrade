@@ -1,5 +1,3 @@
-
-
 #///////////////////////Support Frame Beam Top Short///////////////////////
 
 [name="support_frame_top_short_beam_section_vert.model" type="geomtools::simple_boxed_model"]
@@ -18,7 +16,7 @@ shape_type : string = "box"
 x : real as length = 18 mm 
 y : real as length = 2417 mm
 z : real as length = 460 mm
-material.ref : string = "thermal_physics::iron"
+material.ref : string = "basic::iron"
 visibility.hidden           : boolean = false
 visibility.color            : string  = "blue"
 
@@ -35,7 +33,7 @@ shape_type : string = "box"
 x : real as length = 185 mm 
 y : real as length = 2417 mm
 z : real as length = 20 mm
-material.ref : string = "thermal_physics::iron"
+material.ref : string = "basic::iron"
 visibility.hidden           : boolean = false
 visibility.color            : string  = "blue"
 
@@ -75,7 +73,7 @@ shape_type : string = "box"
   x : real as length = 18 mm 
   y : real as length = 4800 mm
   z : real as length = 460 mm
-material.ref : string = "thermal_physics::iron"
+material.ref : string = "basic::iron"
 visibility.hidden : boolean = false
 visibility.color  : string  = "blue"
 
@@ -86,7 +84,7 @@ shape_type : string = "box"
   x : real as length = 185 mm 
   y : real as length = 4800 mm
   z : real as length = 20 mm
-material.ref : string = "thermal_physics::iron"
+material.ref : string = "basic::iron"
 visibility.hidden : boolean = false
 visibility.color  : string  = "blue"
 
@@ -115,7 +113,7 @@ shape_type : string = "box"
   x : real as length = 18 mm 
   y : real as length = 945 mm
   z : real as length = 460 mm
-material.ref : string = "thermal_physics::iron"
+material.ref : string = "basic::iron"
 visibility.hidden           : boolean = false
 visibility.hidden_envelope  : boolean = false
 visibility.daughters.hidden : boolean = false
@@ -127,7 +125,7 @@ shape_type : string = "box"
   x : real as length = 18 mm 
   y : real as length = 35 mm
   z : real as length = 460 mm
-material.ref : string = "thermal_physics::iron"
+material.ref : string = "basic::iron"
 visibility.hidden           : boolean = false
 visibility.hidden_envelope  : boolean = false
 visibility.daughters.hidden : boolean = false
@@ -140,7 +138,7 @@ shape_type : string = "box"
 x : real as length = 185 mm 
 y : real as length = 945 mm
 z : real as length = 20 mm
-material.ref : string = "thermal_physics::iron"
+material.ref : string = "basic::iron"
 visibility.hidden           : boolean = false
 visibility.color            : string  = "blue"
 
@@ -151,7 +149,7 @@ shape_type : string = "box"
 x : real as length = 185 mm 
 y : real as length = 35 mm
 z : real as length = 20 mm
-material.ref : string = "thermal_physics::iron"
+material.ref : string = "basic::iron"
 visibility.hidden           : boolean = false
 visibility.color            : string  = "blue"
 
@@ -196,7 +194,7 @@ shape_type : string = "box"
 x : real as length = 18 mm 
 y : real as length = 3100 mm
 z : real as length = 460 mm
-material.ref : string = "thermal_physics::iron"
+material.ref : string = "basic::iron"
 visibility.hidden : boolean = false
 visibility.color  : string  = "blue"
 
@@ -206,7 +204,7 @@ shape_type : string = "box"
 x : real as length = 185 mm 
 y : real as length = 3100 mm
 z : real as length = 20 mm
-material.ref : string = "thermal_physics::iron"
+material.ref : string = "basic::iron"
 visibility.hidden : boolean = false
 visibility.color  : string  = "blue"
 
@@ -235,7 +233,7 @@ shape_type : string = "box"
 x : real as length = 18 mm 
 y : real as length = 180 mm
 z : real as length = 460 mm
-material.ref : string = "thermal_physics::iron"
+material.ref : string = "basic::iron"
 visibility.hidden           : boolean = false
 visibility.color            : string  = "blue"
 
@@ -245,7 +243,7 @@ shape_type : string = "box"
 x : real as length = 185 mm 
 y : real as length = 180 mm
 z : real as length = 20 mm
-material.ref : string = "thermal_physics::iron"
+material.ref : string = "basic::iron"
 visibility.hidden : boolean = false
 visibility.color  : string  = "blue"
 
@@ -277,7 +275,7 @@ shape_type : string = "box"
 x : real as length = 25.5 mm 
 y : real as length = 4800 mm
 z : real as length = 540 mm
-material.ref : string = "thermal_physics::iron"
+material.ref : string = "basic::iron"
 visibility.hidden : boolean = false
 visibility.color  : string  = "blue"
 
@@ -288,7 +286,7 @@ shape_type : string = "box"
   x : real as length = 300 mm 
   y : real as length = 4800 mm
   z : real as length = 30 mm
-material.ref : string = "thermal_physics::iron"
+material.ref : string = "basic::iron"
 visibility.hidden : boolean = false
 visibility.color  : string  = "blue"
 
@@ -317,7 +315,7 @@ shape_type : string = "box"
 x : real as length = 25.5 mm 
 y : real as length = 945 mm
 z : real as length = 540 mm
-material.ref : string = "thermal_physics::iron"
+material.ref : string = "basic::iron"
 visibility.hidden : boolean = false
 visibility.color  : string  = "blue"
 
@@ -328,7 +326,7 @@ shape_type : string = "box"
 x : real as length = 300 mm 
 y : real as length = 945 mm
 z : real as length = 30 mm
-material.ref : string = "thermal_physics::iron"
+material.ref : string = "basic::iron"
 visibility.hidden : boolean = false
 visibility.color  : string  = "blue"
 
@@ -355,7 +353,7 @@ shape_type : string = "box"
 x : real as length = 25.5 mm 
 y : real as length = 35 mm
 z : real as length = 540 mm
-material.ref : string = "thermal_physics::iron"
+material.ref : string = "basic::iron"
 visibility.hidden : boolean = false
 visibility.color  : string  = "blue"
 
@@ -366,7 +364,7 @@ shape_type : string = "box"
 x : real as length = 300 mm 
 y : real as length = 35 mm
 z : real as length = 30 mm
-material.ref : string = "thermal_physics::iron"
+material.ref : string = "basic::iron"
 visibility.hidden : boolean = false
 visibility.color  : string  = "blue"
 
@@ -403,7 +401,7 @@ shape_type : string = "box"
   x : real as length = 25.5 mm 
   y : real as length = 3100 mm
   z : real as length = 540 mm
-material.ref : string = "thermal_physics::iron"
+material.ref : string = "basic::iron"
 visibility.hidden : boolean = false
 visibility.color  : string  = "blue"
 
@@ -414,7 +412,7 @@ shape_type : string = "box"
   x : real as length = 300 mm 
   y : real as length = 3100 mm
   z : real as length = 30 mm
-material.ref : string = "thermal_physics::iron"
+material.ref : string = "basic::iron"
 visibility.hidden : boolean = false
 visibility.color  : string  = "blue"
 
@@ -452,7 +450,7 @@ shape_type : string = "box"
 x : real as length = 25.5 mm 
 y : real as length = 180 mm
 z : real as length = 540 mm
-material.ref : string = "thermal_physics::iron"
+material.ref : string = "basic::iron"
 visibility.hidden : boolean = false
 visibility.color  : string  = "blue"
 
@@ -463,7 +461,7 @@ shape_type : string = "box"
 x : real as length = 300 mm 
 y : real as length = 180 mm
 z : real as length = 30 mm
-material.ref : string = "thermal_physics::iron"
+material.ref : string = "basic::iron"
 visibility.hidden : boolean = false
 visibility.color  : string  = "blue"
 
@@ -492,7 +490,7 @@ shape_type : string = "box"
 x : real as length = 460 mm 
 y : real as length = 18 mm
 z : real as length = 6157 mm
-material.ref : string = "thermal_physics::iron"
+material.ref : string = "basic::iron"
 visibility.hidden : boolean = false
 visibility.color  : string  = "blue"
 
@@ -503,7 +501,7 @@ shape_type : string = "box"
 x : real as length = 20 mm 
 y : real as length = 185 mm
 z : real as length = 6157 mm
-material.ref : string = "thermal_physics::iron"
+material.ref : string = "basic::iron"
 visibility.hidden : boolean = false
 visibility.color  : string  = "blue"
 
@@ -532,7 +530,7 @@ shape_type : string = "box"
   x : real as length = 250 mm 
   y : real as length = 270 mm
   z : real as length = 3700 mm  #adjusted so no overlap from 3832#
-material.ref : string = "thermal_physics::iron"
+material.ref : string = "basic::iron"
 visibility.hidden : boolean = false
 visibility.color  : string  = "blue"
 
