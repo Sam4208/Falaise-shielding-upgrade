@@ -133,6 +133,6 @@ versatile_generator      : Single particle generator with monokinetic energy    
 flat_versatile_generator : Single particle generator with flat energy distribution : User : if_flat_versatile : rank=second 
 tweakable_generator      : Broadly tweakable single particle generator             : User : if_tweakable      : rank=second 
 input_events             : Input event Generator                                   : User :                   : rank=first
-aegir                    : Arbitrary Event Generator InjectoR                      : User : if_aegir          : rank=first
+aegir                    : Arbitrary Event Generator InjectoR                      : User : if_aegir          : rank=second
 
 # end

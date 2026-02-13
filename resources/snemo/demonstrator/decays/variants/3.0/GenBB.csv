@@ -98,6 +98,8 @@ Ga68  : Ga-68 decay  : Background : : rank=second
 Sc44  : Sc-44 decay  : Background : : rank=second
 Sc44m : Sc-44m decay : Background : : rank=second
 Se83  : Se-68 decay  : Background : : rank=second
+Cu64  : Cu-64 decay  : Background : : rank=second
+Cu66  : Cu-66 decay  : Background : : rank=second
 
 ### Calibration sources ###
 calibBi207 : Bi-207 decay (with time slicing) : Calibration : : rank=highlight 
@@ -142,6 +144,6 @@ versatile_generator      : Single particle generator with monokinetic energy    
 flat_versatile_generator : Single particle generator with flat energy distribution : User : if_flat_versatile : rank=second 
 tweakable_generator      : Broadly tweakable single particle generator             : User : if_tweakable      : rank=second 
 input_events             : Input event Generator                                   : User :                   : rank=first
-aegir                    : Arbitrary Event Generator InjectoR                      : User : if_aegir          : rank=first
+aegir                    : Arbitrary Event Generator InjectoR                      : User : if_aegir          : rank=second
 
 # end

@@ -49,12 +49,12 @@
     mapping.daughter_id.module_0     : string = "[module:module=0]"
     visibility.daughters.module_0.shown : boolean = true
  
-    # Ground:
-    internal_item.labels             : string[1] += "ground"
-    internal_item.model.ground       : string = "hall_ground.model"
-    internal_item.placement.ground   : string = "0 0 -3870 (mm)"
-    mapping.daughter_id.ground       : string = "[ground]"
-    visibility.daughters.ground.shown : boolean = true
+    # Ground:     REMOVED 13/02/2026 SPRATT
+   # internal_item.labels             : string[1] += "ground"         
+   # internal_item.model.ground       : string = "hall_ground.model"
+   # internal_item.placement.ground   : string = "0 0 -3870 (mm)"
+   # mapping.daughter_id.ground       : string = "[ground]"
+   # visibility.daughters.ground.shown : boolean = true
  
     #@variant_if geometry:layout/if_basic/shielding/is_present|false
  
